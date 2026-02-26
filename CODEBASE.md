@@ -1,10 +1,10 @@
-# DriftShield Codebase Reference
+# AgentWatch Codebase Reference
 
 Complete line-by-line reference for every class and method in the project.
 
 ---
 
-## driftshield/models.py
+## gentwatch/models.py
 
 ### `Severity(str, Enum)`
 - Values: `LOW`, `MED` (not MEDIUM!), `HIGH`, `CRITICAL`
@@ -34,7 +34,7 @@ Fields: `agent_id, calibration_runs=0, mean_tokens_per_run=0.0, std_tokens_per_r
 
 ---
 
-## driftshield/monitor.py
+## agentwatch/monitor.py
 
 ### `DriftMonitor`
 
@@ -94,7 +94,7 @@ Proxies to `self._agent` — makes wrapper transparent.
 
 ---
 
-## driftshield/detectors/base.py
+## agentwatch/detectors/base.py
 
 ### `BaseDetector` (ABC)
 ```python
@@ -105,7 +105,7 @@ check(event: TraceEvent, baseline: BaselineStats | None) → DriftEvent | None  
 
 ---
 
-## driftshield/detectors/action_loop.py
+## agentwatch/detectors/action_loop.py
 
 ### `ActionLoopDetector(BaseDetector)`
 
@@ -133,7 +133,7 @@ __init__(store, window_size=20, max_repeats=4, sequence_length=3, enabled=True)
 
 ---
 
-## driftshield/detectors/goal_drift.py
+## agentwatch/detectors/goal_drift.py
 
 ### Module-level
 - `_embedder = None` — global singleton for SentenceTransformer
@@ -168,7 +168,7 @@ Public utility method. Not used internally; useful for testing.
 
 ---
 
-## driftshield/detectors/resource_spike.py
+## agentwatch/detectors/resource_spike.py
 
 ### `ResourceSpikeDetector(BaseDetector)`
 
@@ -201,12 +201,12 @@ Checks 3 metrics: `total_tokens`, `total_duration_ms`, `tool_calls`
 
 ---
 
-## driftshield/storage/__init__.py
+## agentwatch/storage/__init__.py
 
 ### `TraceStore`
 
 ```python
-DEFAULT_DB_PATH = Path.home() / ".driftshield" / "driftshield.db"
+DEFAULT_DB_PATH = Path.home() / ".agentwatch" / "agentwatch.db"
 __init__(db_path: str | Path | None = None)
 ```
 
@@ -240,7 +240,7 @@ Single SQL query with aggregations: `COUNT(*)`, `SUM(token_count)`, conditional 
 
 ---
 
-## driftshield/baseline/__init__.py
+## agentwatch/baseline/__init__.py
 
 ### `Calibrator`
 
@@ -264,7 +264,7 @@ Counter of all unique subsequences (len 2..4) across runs. Returns top 5 most co
 
 ---
 
-## driftshield/alerts/__init__.py
+## agentwatch/alerts/__init__.py
 
 ### Constants
 ```python
@@ -297,13 +297,13 @@ Auto-detects: `"hooks.slack.com"` → slack, `"discord.com"` → discord, else g
 
 **`_discord_payload`**: `embeds[0]` with title, color as int, fields.
 
-**`_generic_payload`**: `{"source": "driftshield", "event": event.to_dict()}`
+**`_generic_payload`**: `{"source": "agentwatch", "event": event.to_dict()}`
 
 ---
 
-## driftshield/cli.py
+## agentwatch/cli.py
 
-Entry point: `driftshield` command (configured in pyproject.toml).
+Entry point: `agentwatch` command (configured in pyproject.toml).
 
 **`@click.group() cli(ctx, db)`** — creates TraceStore, stores in `ctx.obj["store"]`
 
@@ -327,7 +327,7 @@ Entry point: `driftshield` command (configured in pyproject.toml).
 
 ---
 
-## driftshield/crewai.py
+## agentwatch/crewai.py
 
 ### `DriftCrew`
 

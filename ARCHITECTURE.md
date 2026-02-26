@@ -1,4 +1,4 @@
-# DriftShield Architecture
+# AgentWatch Architecture
 
 ## System Overview
 
@@ -86,7 +86,7 @@ The central orchestrator. Instantiated once per agent type.
 | `alert_webhook` | None | Slack/Discord/generic webhook URL |
 | `goal_description` | "" | Text description of agent's objective (used by GoalDriftDetector) |
 | `calibration_runs` | 30 | Runs before baseline is considered calibrated |
-| `db_path` | `~/.driftshield/driftshield.db` | SQLite location |
+| `db_path` | `~/.agentwatch/agentwatch.db` | SQLite location |
 | `loop_window` | 20 | Recent actions to scan for loops |
 | `loop_max_repeats` | 4 | Consecutive repeats before flagging |
 | `similarity_threshold` | 0.5 | Cosine similarity cutoff for goal drift |
@@ -238,7 +238,7 @@ class BaselineStats:
 
 ### TraceStore (storage/__init__.py)
 
-SQLite wrapper. Default path: `~/.driftshield/driftshield.db`.
+SQLite wrapper. Default path: `~/.agentwatch/agentwatch.db`.
 
 **Thread safety**: Uses `threading.local()` so each thread gets its own connection.
 
@@ -289,7 +289,7 @@ Called by `DriftMonitor.end_run()` after every run.
 **Payload formats**:
 - Slack (`hooks.slack.com` in URL): `attachments` with colored `blocks`
 - Discord (`discord.com` in URL): `embeds` with color as integer
-- Generic: `{"source": "driftshield", "event": event.to_dict()}`
+- Generic: `{"source": "agentwatch", "event": event.to_dict()}`
 
 **Bug**: `send_async()` exists but is never called. `send_sync()` is always used, which blocks the calling thread during HTTP POST.
 

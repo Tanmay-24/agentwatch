@@ -1,8 +1,8 @@
-# DriftShield — Future UI / Frontend Scope
+# AgentWatch — Future UI / Frontend Scope
 
 ## Goal
 
-Add a web dashboard so DriftShield can be:
+Add a web dashboard so AgentWatch can be:
 - **Demo'd** live during pitches (show real-time drift alerts on screen)
 - **Shared** as a hosted link (deploy once, share URL with anyone)
 - **Self-explanatory** (anyone can understand what's happening without reading docs)
@@ -79,7 +79,7 @@ WS   /ws/agent-stream/:id                 → WebSocket: pushes TraceEvent JSON 
 # backend/main.py
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
-from driftshield.storage import TraceStore
+from agentwatch.storage import TraceStore
 
 app = FastAPI()
 store = TraceStore()
@@ -126,7 +126,7 @@ DriftMonitor                             FastAPI (Railway/Render)
 **Simplest hosted option**:
 1. Deploy FastAPI on Railway with SQLite file on mounted volume
 2. Deploy Next.js on Vercel, pointing at Railway URL
-3. User adds `DRIFTSHIELD_DB_PATH=/data/driftshield.db` env var
+3. User adds `AGENTWATCH_DB_PATH=/data/agentwatch.db` env var
 4. Share the Vercel URL
 
 **For demo/pitch (local)**:
@@ -152,7 +152,7 @@ ngrok http 3000
 ## Folder Structure
 
 ```
-driftshield-ui/
+agentwatch-ui/
 ├── backend/
 │   ├── main.py          # FastAPI app
 │   ├── routers/

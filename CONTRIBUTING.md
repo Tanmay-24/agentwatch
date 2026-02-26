@@ -1,12 +1,12 @@
-# Contributing to DriftShield
+# Contributing to AgentWatch
 
-DriftShield is in early development (v0.1). Contributions, bug reports, and feedback are welcome.
+AgentWatch is in early development (v0.1). Contributions, bug reports, and feedback are welcome.
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/driftshield.git
-cd driftshield
+git clone https://github.com/YOUR_USERNAME/agentwatch.git
+cd agentwatch
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev,langchain]"
@@ -20,7 +20,7 @@ python -m pytest tests/ -v
 
 ## Reporting Issues
 
-If you've seen an agent drift that DriftShield didn't catch (or flagged incorrectly), please open an issue with:
+If you've seen an agent drift that AgentWatch didn't catch (or flagged incorrectly), please open an issue with:
 
 1. Which detector was involved (action_loop, goal_drift, resource_spike)
 2. What the agent was doing

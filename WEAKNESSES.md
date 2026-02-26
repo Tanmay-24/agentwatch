@@ -1,4 +1,4 @@
-# DriftShield — Known Weaknesses & Improvement Opportunities
+# AgentWatch — Known Weaknesses & Improvement Opportunities
 
 ## Critical Gaps (Must Fix for Production)
 

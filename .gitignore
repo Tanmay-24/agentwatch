@@ -30,7 +30,7 @@ htmlcov/
 *.swo
 
 # AgentWatch data
-.driftshield/
+.agentwatch/
 *.db
 *.db-shm
 *.db-wal
