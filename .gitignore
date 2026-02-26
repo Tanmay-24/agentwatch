@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.xml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# AgentWatch data
+.driftshield/
+*.db
+*.db-shm
+*.db-wal
+
+# MkDocs
+site/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env.local
+.env.*.local
+secrets.yaml
