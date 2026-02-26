@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 import time
 import uuid
-from functools import wraps
 from typing import Any, Callable
 
 from agentwatch.alerts import AlertDispatcher

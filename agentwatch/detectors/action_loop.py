@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from collections import Counter
 
 from agentwatch.detectors.base import BaseDetector
 from agentwatch.models import (
