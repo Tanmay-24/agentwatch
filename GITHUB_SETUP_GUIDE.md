@@ -1,20 +1,20 @@
-# Getting DriftShield on GitHub — Step by Step
+# Getting AgentWatch on GitHub — Step by Step
 
 ## Your Final Repo Structure
 
 ```
-driftshield/
+agentwatch/
 ├── .gitignore
 ├── LICENSE                     # MIT — removes friction for adoption
 ├── README.md                   # First thing prospects see
 ├── CONTRIBUTING.md             # Signals "real project" to beta testers
 ├── pyproject.toml              # Modern Python packaging (replaces setup.py)
 │
-├── driftshield/                # The actual library
+├── agentwatch/                # The actual library
 │   ├── __init__.py             # Public API: DriftMonitor, models
 │   ├── monitor.py              # Core wrapper — the main entry point
 │   ├── models.py               # TraceEvent, DriftEvent, BaselineStats
-│   ├── cli.py                  # `driftshield alerts`, `traces`, etc.
+│   ├── cli.py                  # `agentwatch alerts`, `traces`, etc.
 │   ├── crewai.py               # CrewAI integration
 │   │
 │   ├── detectors/              # The three drift detectors
@@ -41,7 +41,7 @@ driftshield/
 ## Step 1: Create the GitHub Repo
 
 1. Go to https://github.com/new
-2. Repository name: `driftshield` (or `driftshield-mini`)
+2. Repository name: `agentwatch` (or `agentwatch-mini`)
 3. Description: "Real-time behavioural drift detection for agentic AI systems"
 4. Set to **Public** (your spec says open-source to build trust)
 5. Do NOT add a README/gitignore/license (we already have them)
@@ -52,8 +52,8 @@ driftshield/
 Open your terminal and run these commands:
 
 ```bash
-# Navigate to wherever you downloaded the driftshield folder
-cd path/to/driftshield
+# Navigate to wherever you downloaded the agentwatch folder
+cd path/to/agentwatch
 
 # Initialise git
 git init
@@ -62,10 +62,10 @@ git init
 git add .
 
 # First commit
-git commit -m "feat: initial DriftShield v0.1 — 3 drift detectors, SQLite storage, CLI, webhook alerts"
+git commit -m "feat: initial AgentWatch v0.1 — 3 drift detectors, SQLite storage, CLI, webhook alerts"
 
 # Connect to GitHub (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/driftshield.git
+git remote add origin https://github.com/YOUR_USERNAME/agentwatch.git
 
 # Push
 git branch -M main
@@ -106,7 +106,7 @@ Go to Releases → "Create a new release"
 | Milestone | Add to repo |
 |-----------|-------------|
 | First 3 beta users | GitHub Actions for tests |
-| 10+ GitHub stars | Publish to PyPI (`pip install driftshield`) |
+| 10+ GitHub stars | Publish to PyPI (`pip install agentwatch`) |
 | v0.2 with dashboard | Separate `docs/` folder or ReadTheDocs |
 | First paying customer | GitHub org + SECURITY.md |
 
@@ -115,7 +115,7 @@ Go to Releases → "Create a new release"
 Even without PyPI, beta testers can install directly:
 
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/driftshield.git
+pip install git+https://github.com/YOUR_USERNAME/agentwatch.git
 ```
 
 Share this one-liner with your beta testers. It's much easier than

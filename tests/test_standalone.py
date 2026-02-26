@@ -9,11 +9,11 @@ import unittest
 # Add parent dir to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from driftshield.models import BaselineStats, DetectorType, Severity, TraceEvent
-from driftshield.storage import TraceStore
-from driftshield.detectors.action_loop import ActionLoopDetector
-from driftshield.detectors.resource_spike import ResourceSpikeDetector
-from driftshield.monitor import DriftMonitor
+from agentwatch.models import BaselineStats, DetectorType, Severity, TraceEvent
+from agentwatch.storage import TraceStore
+from agentwatch.detectors.action_loop import ActionLoopDetector
+from agentwatch.detectors.resource_spike import ResourceSpikeDetector
+from agentwatch.monitor import DriftMonitor
 
 
 class TestModels(unittest.TestCase):
