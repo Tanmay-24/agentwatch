@@ -28,42 +28,41 @@ Everything stays on your machine. Traces go to a local SQLite file. Embeddings r
 
 ## Get started
 
-```
+```bash
 pip install agentwatch
+
+# With your framework of choice:
+pip install "agentwatch[openai]"
+pip install "agentwatch[langchain]"
+pip install "agentwatch[dspy]"
+pip install "agentwatch[all]"
 ```
 
-### LangChain
+### One-line integration — `watch()`
+
+Wrap any supported client with a single call. AgentWatch auto-detects the type:
 
 ```python
-from agentwatch import DriftMonitor
+from agentwatch import watch
 
-monitor = DriftMonitor(
-    agent_id="logistics-v2",
-    alert_webhook="https://hooks.slack.com/...",
-)
+# OpenAI
+from openai import OpenAI
+client = watch(OpenAI(), agent_id="my-agent", webhook="https://hooks.slack.com/...")
+response = client.chat.completions.create(model="gpt-4o", messages=[...])
 
-agent = monitor.wrap(existing_agent)
-result = agent.invoke({"input": "optimise route for order #4821"})
-# AgentWatch is now watching. That's it.
+# LangChain
+agent = watch(existing_langchain_agent, agent_id="my-agent", webhook="https://hooks.slack.com/...")
+result = agent.invoke({"input": "summarise ticket #123"})
+
+# DSPy
+import dspy
+module = watch(MyDSPyModule(), agent_id="my-agent", webhook="https://hooks.slack.com/...")
+result = module(question="What is the capital of France?")
 ```
 
-### CrewAI
+### Works with any model provider
 
-```python
-from agentwatch.crewai import DriftCrew
-
-crew = DriftCrew(
-    crew=existing_crew,
-    agent_id="research-team-v1",
-    alert_webhook="https://discord.com/api/webhooks/...",
-)
-
-result = crew.kickoff()
-```
-
-### Works with any LLM
-
-OpenAI, Anthropic, Groq, Ollama, local models — doesn't matter. AgentWatch only sees the traces (tool calls, token counts, outputs), not the model internals. Swap providers whenever you want.
+Swap OpenAI for Anthropic, Groq, Ollama — doesn't matter. AgentWatch only sees the traces (tool calls, token counts, outputs), not model internals.
 
 ---
 
