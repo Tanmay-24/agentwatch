@@ -12,7 +12,7 @@ requires-python = ">=3.10"
 authors = [
     {name = "Tanmay Sharma"}
 ]
-keywords = ["ai", "agents", "monitoring", "drift-detection", "langchain", "crewai"]
+keywords = ["ai", "agents", "monitoring", "drift-detection", "langchain", "openai", "dspy"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -32,9 +32,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+openai = ["openai>=1.0.0"]
 langchain = ["langchain>=0.1.0", "langchain-core>=0.1.0"]
-crewai = ["crewai>=0.1.0"]
+dspy = ["dspy-ai>=2.0.0"]
 dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "ruff>=0.1.0"]
+all = ["openai>=1.0.0", "langchain>=0.1.0", "langchain-core>=0.1.0", "dspy-ai>=2.0.0"]
 
 [project.scripts]
 agentwatch = "agentwatch.cli:cli"
